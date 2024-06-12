@@ -1,6 +1,11 @@
 
+@media (max-width: 600px) {
+    .actions {
+        padding-right: 16px !important;
+    }
+}
+
 .headerSection {
-    /* box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);  */
     height: 60px; 
     width: 100%; 
     position: fixed; 
@@ -16,6 +21,13 @@
     align-items: center;
     justify-content: flex-end;
     padding-right: 40px;
+  }
+  .customSection {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
   }
 
   .mode {
@@ -44,5 +56,22 @@
     line-height: 1rem;
     user-select: none;
   }
+  .titleMode {
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 1rem;
+    user-select: none;
+  }
+
+  .logout {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 10px;
+    cursor: pointer;
+  }
+
 
 

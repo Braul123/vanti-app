@@ -1,0 +1,11 @@
+
+.contentHome {
+    width: 100%;
+    height: 100%;
+    background-color: #282c34;
+    display: flex;
+}
+
+.list {
+    padding-top: 74px;
+}

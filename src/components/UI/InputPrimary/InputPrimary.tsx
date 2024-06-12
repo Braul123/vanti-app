@@ -18,13 +18,13 @@ type props = {
 export default function InputPrimary(data: props) {
     const isDarker = useSelector((state: any) => state.colorSystem.useColorScheme) === "dark";
     const colorsCustom = useColors();
-
-    const [showPassword, setShowPassword] = useState(data.type == 'password' ? false : true);
+    const [showPassword, setShowPassword] = useState(data.type === 'password' ? false : true);
 
     const stylesInputCustom = {
         borderColor: isDarker ? '#41484D' : '#71787E',
     }
 
+    // Evento para mostrar la contraseña
     const handleButtonPassword = () => {
         setShowPassword(!showPassword);
     }
@@ -32,13 +32,13 @@ export default function InputPrimary(data: props) {
     return (
         <div className='contentInput'>
             <input
+                value={data.value}
                 className="inputPrimary"
                 style={{ ...stylesInputCustom, ...colorsCustom.colorText }}
                 disabled={data.disable}
-                type={data.type == 'password' && showPassword ? 'text' : data.type}
-                onChange={data.setValue}
+                type={data.type === 'password' && showPassword ? 'text' : data.type}
+                onChange={(event) => data.setValue(event.target.value)}
                 placeholder={data.placeholder} />
-
             {
                 data.type === "password" &&
                 <div className='passwordIcon' onClick={() => handleButtonPassword()}>
