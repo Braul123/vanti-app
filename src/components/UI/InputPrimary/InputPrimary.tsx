@@ -13,6 +13,7 @@ type props = {
     placeholder: string;
     disable?: boolean,
     type?: "text" | "password" | "email",
+    style?: any
 };
 
 export default function InputPrimary(data: props) {
@@ -34,7 +35,7 @@ export default function InputPrimary(data: props) {
             <input
                 value={data.value}
                 className="inputPrimary"
-                style={{ ...stylesInputCustom, ...colorsCustom.colorText }}
+                style={{ ...stylesInputCustom, ...colorsCustom.colorText, ...data.style }}
                 disabled={data.disable}
                 type={data.type === 'password' && showPassword ? 'text' : data.type}
                 onChange={(event) => data.setValue(event.target.value)}

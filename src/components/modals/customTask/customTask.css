@@ -1,0 +1,16 @@
+
+.description {
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 0.9rem;
+}
+
+.inputPrimary {
+
+    &:focus {
+        border-color: #000 !important;
+    }
+    &:hover {
+        border-color: #000 !important;
+    }
+}

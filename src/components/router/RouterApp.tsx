@@ -5,7 +5,7 @@ import LoginApp from '../login/Login';
 import HomeApp from '../home/Home';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeRouterExternal } from '../redux/routerDynamic';
+import { changeRouterExternal } from '../state-app/routerDynamic';
 import { getAcessToken } from '../services/utils/utils';
 
 export default function RouterApp() {

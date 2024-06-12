@@ -6,9 +6,9 @@ import InputPrimary from '../UI/InputPrimary/InputPrimary';
 import ButtonPrimary from '../UI/ButtonPrimary/ButtonPrimary';
 import { useNavigate } from 'react-router-dom';
 // Servicios
-import fetchLogin from '../services/login';
+import fetchLogin from '../services/login-service';
 import { getAcessToken } from '../services/utils/utils';
-import { changeRouterExternal } from '../redux/routerDynamic';
+import { changeRouterExternal } from '../state-app/routerDynamic';
 import { useDispatch } from 'react-redux';
 
 

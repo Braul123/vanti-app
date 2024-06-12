@@ -5,18 +5,20 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { FaArrowLeft } from "react-icons/fa";
 
 // Sservicios
-import { logOutApp } from '../../services/login';
+import { logOutApp } from '../../services/login-service';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAspect } from '../../redux/colorSystemSlice';
-import { changeRouterExternal } from '../../redux/routerDynamic';
+import { changeAspect } from '../../state-app/colorSystemSlice';
+import { changeRouterExternal } from '../../state-app/routerDynamic';
 import { useColors, colorsMain } from '../../services/utils/colors';
 
 export default function Header(data: any) {
     // Inicia el estado para la configiración de aspecto de la aplicacion 
-    const dispatch = useDispatch();
     const isDarker = useSelector((state: any) => state.colorSystem.useColorScheme) === "dark";
-    const actualDynamicNav = useSelector((state: any) => state.routerDynamic.action);
+    const colors = useColors(); // Obtiene los colores principales
 
+    const dispatch = useDispatch();
+    const actualDynamicNav = useSelector((state: any) => state.routerDynamic.action);
+    
     useEffect(() => {
         // Si está fuera del login activa el boton de cerrar sesion
         if (window.location.pathname !== '/') {
@@ -24,7 +26,6 @@ export default function Header(data: any) {
         }
     }, []);
 
-    const colors = useColors(); // Obtiene los colores principales
 
     // Cambia el aspecto de la aplicación
     const handleMode = (mode: string) => {
@@ -73,8 +74,8 @@ export default function Header(data: any) {
                 {
                     actualDynamicNav !== '/' &&
                     <div className='logout' onClick={() => logOut()}>
-                        <FaArrowLeft size={16} style={!isDarker ? activeButtonLigth.text : colors.colorText}/>
-                        <span className='titleMode' style={!isDarker ? activeButtonLigth.text : colors.colorText}>Cerrar sesión</span>
+                        <FaArrowLeft size={16} style={colors.colorText}/>
+                        <span className='titleMode' style={colors.colorText}>Cerrar sesión</span>
 
                     </div>
                 }
